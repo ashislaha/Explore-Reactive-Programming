@@ -73,5 +73,12 @@ Observable Sequence can emit 0 or more signal/event in their lifetime.
 
 (C.) <b>.completed :</b>  If an Observable Sequence ends normally then it emits  a “completed” signal to its subscribers.
 
+### Unregister subscription :
+If you want to cancel a subscription, you can call dispose method.
 
+      eventSubscription.dispose() 
+
+Or you can add this to disposeBag which will cancel the subscription automatically in deinit method.
+       
+     eventSubscription.disposed(by: disposeBag)
 
