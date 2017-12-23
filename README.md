@@ -14,12 +14,12 @@ Array, Dictionary, string will be converted into observable sequence in RxSwift.
 
 let’s create some observable sequence :
 
-     let helloSwift = Observable.just("Hello World")
-     let fiboniccaSequence = Observable.from([0,1,1,2,3,5,8])
-     let dictSequence = Observable.from(["1" : 1, "2" : 2])
-     let disposeBag = DisposeBag()
+    let helloSwift = Observable.just("Hello World")
+    let fiboniccaSequence = Observable.from([0,1,1,2,3,5,8])
+    let dictSequence = Observable.from(["1" : 1, "2" : 2])
+    let nameSequence = Observable.from(["ashis", "kunal", "ratan", "sam"])
+    let disposeBag = DisposeBag()
  
-
 You can subscribe those observable sequence to observe it. 
 
         // event
@@ -29,16 +29,26 @@ You can subscribe those observable sequence to observe it.
         eventSubscription.disposed(by: disposeBag)
         
         // onNext
-        let onNextSubscription = fiboniccaSequence.subscribe(onNext: { (arr) in
-            print(arr)
+        let onNextSubscription = fiboniccaSequence.subscribe(onNext: { (eachElement) in
+            print(eachElement)
         }, onError: nil, onCompleted: nil, onDisposed: nil)
         onNextSubscription.disposed(by: disposeBag)
+        
+        //event
+        let nameSubsciption = nameSequence.subscribe { (event) in
+            switch event {
+            case .next(let val): print(val)
+            case .completed: print("Completed")
+            case .error(let error): print(error)
+            }
+        }
+        nameSubsciption.disposed(by: disposeBag)
 
 ## Output :
 
      next(Hello World)
      completed
-     
+
      0
      1
      1
@@ -46,6 +56,12 @@ You can subscribe those observable sequence to observe it.
      3
      5
      8
+
+     ashis
+     kunal
+     ratan
+     sam
+     Completed
 
 Observable Sequence can emit 0 or more signal/event in their lifetime.
 
