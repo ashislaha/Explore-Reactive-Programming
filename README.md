@@ -17,6 +17,7 @@ let’s create some observable sequence :
      let helloSwift = Observable.just("Hello World")
      let fiboniccaSequence = Observable.from([0,1,1,2,3,5,8])
      let dictSequence = Observable.from(["1" : 1, "2" : 2])
+     let disposeBag = DisposeBag()
  
 
 You can subscribe those observable sequence to observe it. 
