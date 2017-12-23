@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5D84DD26B41F060D97EF679D /* Pods_Explore_Reactive_Programming.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 44B2D296B487B896765A2DFD /* Pods_Explore_Reactive_Programming.framework */; };
 		8057E48D1FEE17F70010958C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8057E48C1FEE17F70010958C /* AppDelegate.swift */; };
 		8057E48F1FEE17F70010958C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8057E48E1FEE17F70010958C /* ViewController.swift */; };
 		8057E4921FEE17F70010958C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8057E4901FEE17F70010958C /* Main.storyboard */; };
@@ -15,6 +16,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		44B2D296B487B896765A2DFD /* Pods_Explore_Reactive_Programming.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Explore_Reactive_Programming.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8057E4891FEE17F70010958C /* Explore_Reactive_Programming.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Explore_Reactive_Programming.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8057E48C1FEE17F70010958C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8057E48E1FEE17F70010958C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -22,6 +24,8 @@
 		8057E4931FEE17F70010958C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8057E4961FEE17F70010958C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8057E4981FEE17F70010958C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		85987B670A87B6D949AB6703 /* Pods-Explore_Reactive_Programming.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Explore_Reactive_Programming.release.xcconfig"; path = "Pods/Target Support Files/Pods-Explore_Reactive_Programming/Pods-Explore_Reactive_Programming.release.xcconfig"; sourceTree = "<group>"; };
+		AFA17FE6387BEE459787E005 /* Pods-Explore_Reactive_Programming.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Explore_Reactive_Programming.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Explore_Reactive_Programming/Pods-Explore_Reactive_Programming.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,17 +33,28 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5D84DD26B41F060D97EF679D /* Pods_Explore_Reactive_Programming.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		19CCFC5551338C5A7702D6A2 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				44B2D296B487B896765A2DFD /* Pods_Explore_Reactive_Programming.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		8057E4801FEE17F70010958C = {
 			isa = PBXGroup;
 			children = (
 				8057E48B1FEE17F70010958C /* Explore_Reactive_Programming */,
 				8057E48A1FEE17F70010958C /* Products */,
+				B1C59967D27DACF6C7322D70 /* Pods */,
+				19CCFC5551338C5A7702D6A2 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -64,6 +79,15 @@
 			path = Explore_Reactive_Programming;
 			sourceTree = "<group>";
 		};
+		B1C59967D27DACF6C7322D70 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				AFA17FE6387BEE459787E005 /* Pods-Explore_Reactive_Programming.debug.xcconfig */,
+				85987B670A87B6D949AB6703 /* Pods-Explore_Reactive_Programming.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -71,9 +95,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 8057E49B1FEE17F70010958C /* Build configuration list for PBXNativeTarget "Explore_Reactive_Programming" */;
 			buildPhases = (
+				D072A13B145368B6FC84EC9D /* [CP] Check Pods Manifest.lock */,
 				8057E4851FEE17F70010958C /* Sources */,
 				8057E4861FEE17F70010958C /* Frameworks */,
 				8057E4871FEE17F70010958C /* Resources */,
+				4D783DA20442EBD14573B0F9 /* [CP] Embed Pods Frameworks */,
+				64C6318C2A9454357AD56759 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -130,6 +157,62 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		4D783DA20442EBD14573B0F9 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-Explore_Reactive_Programming/Pods-Explore_Reactive_Programming-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework",
+				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxCocoa.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Explore_Reactive_Programming/Pods-Explore_Reactive_Programming-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		64C6318C2A9454357AD56759 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Explore_Reactive_Programming/Pods-Explore_Reactive_Programming-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D072A13B145368B6FC84EC9D /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Explore_Reactive_Programming-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		8057E4851FEE17F70010958C /* Sources */ = {
@@ -272,6 +355,7 @@
 		};
 		8057E49C1FEE17F70010958C /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = AFA17FE6387BEE459787E005 /* Pods-Explore_Reactive_Programming.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -287,6 +371,7 @@
 		};
 		8057E49D1FEE17F70010958C /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 85987B670A87B6D949AB6703 /* Pods-Explore_Reactive_Programming.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
