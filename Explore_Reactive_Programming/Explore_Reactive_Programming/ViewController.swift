@@ -16,6 +16,7 @@ class ViewController: UIViewController {
     let helloSwift = Observable.just("Hello World")
     let fiboniccaSequence = Observable.from([0,1,1,2,3,5,8])
     let dictSequence = Observable.from(["1" : 1, "2" : 2])
+    let nameSequence = Observable.from(["ashis", "kunal", "ratan", "sam"])
     let disposeBag = DisposeBag()
     
     override func viewDidLoad() {
@@ -30,10 +31,20 @@ class ViewController: UIViewController {
         eventSubscription.disposed(by: disposeBag)
         
         // onNext
-        let onNextSubscription = fiboniccaSequence.subscribe(onNext: { (arr) in
-            print(arr)
+        let onNextSubscription = fiboniccaSequence.subscribe(onNext: { (eachElement) in
+            print(eachElement)
         }, onError: nil, onCompleted: nil, onDisposed: nil)
         onNextSubscription.disposed(by: disposeBag)
+        
+        //event
+        let nameSubsciption = nameSequence.subscribe { (event) in
+            switch event {
+            case .next(let val): print(val)
+            case .completed: print("Completed")
+            case .error(let error): print(error)
+            }
+        }
+        nameSubsciption.disposed(by: disposeBag)
         
     }
 
