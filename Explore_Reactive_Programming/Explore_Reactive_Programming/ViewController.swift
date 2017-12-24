@@ -36,6 +36,8 @@ class ViewController: UIViewController {
         handlePublishSubject()
         handleBehaviorSubject()
         handleReplaySubject()
+        
+        binding()
     }
     
     // Handling Observable sequence
@@ -113,6 +115,25 @@ class ViewController: UIViewController {
         replaySubject.onNext("Event6 - Printed - ReplaySubject")
         
     }
+    
+    // Binding an Observable sequece to a subject
+    private func binding() {
+        
+        let subject = PublishSubject<String>()
+        let observableSequence = Observable<String>.just("Start binding")
+        
+        subject.subscribe(onNext: { (text) in
+            print(text)
+        }, onError: nil, onCompleted: nil, onDisposed: nil).disposed(by: disposeBag)
+        
+        // Either
+        observableSequence.subscribe { (event) in
+            subject.on(event)
+        }.disposed(by: disposeBag)
+        
+        // Or use observableSequence.bindTo(subject)
+    }
+    
 
 }
 
