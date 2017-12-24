@@ -199,7 +199,7 @@ ReplaySubject : N events (based on Buffer capacity )
 
 ## Binding : 
 
-<b> Binding an Observable Sequence to a subject :
+<b> Binding an Observable Sequence to a subject : </b>
     
     private func binding() {
         
