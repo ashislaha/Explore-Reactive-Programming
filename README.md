@@ -22,6 +22,9 @@ let’s create some observable sequence :
  
 You can subscribe those observable sequence to observe it. 
 
+    private func handleObservableSequence() {
+        // subscribe
+        
         // event
         let eventSubscription = helloSwift.subscribe { (event) in
             print(event)
@@ -43,6 +46,7 @@ You can subscribe those observable sequence to observe it.
             }
         }
         nameSubsciption.disposed(by: disposeBag)
+    }
 
 ## Output :
 
