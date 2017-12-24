@@ -197,3 +197,27 @@ ReplaySubject : N events (based on Buffer capacity )
 
     Event6 - Printed - ReplaySubject
 
+## Binding : 
+
+<b> Binding an Observable Sequence to a subject :
+    
+    private func binding() {
+        
+        let subject = PublishSubject<String>()
+        let observableSequence = Observable<String>.just("Start binding")
+        
+        subject.subscribe(onNext: { (text) in
+            print(text)
+        }, onError: nil, onCompleted: nil, onDisposed: nil).disposed(by: disposeBag)
+        
+        // Either
+        observableSequence.subscribe { (event) in
+            subject.on(event)
+        }.disposed(by: disposeBag)
+        
+        // Or use observableSequence.bindTo(subject)
+    }
+    
+ ### Output : 
+        Start binding
+        
