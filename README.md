@@ -99,13 +99,16 @@ There are 4 kinds of subjects are there :
 
 <b>(3) ReplaySubject :</b>  If you want to replay more than the most recent element to new subscribers then use ReplaySubject.
 
-<b>(4) Variable :<b> Wrapper of BehaviourSubject to look and feel for non-reactive programming style.
+<b>(4) Variable :</b> Wrapper of BehaviourSubject to look and feel for non-reactive programming style.
 
 The basic difference in terms of number of past N events in 4 subjects :
 
 PublishSubject : 0 catch event 
+
 BehaviourSubject and Variable : 1 event (the recent event)
+
 ReplaySubject : N events (based on Buffer capacity )
+
 
 ### Examples : 
 
