@@ -32,6 +32,18 @@ class ViewController: UIViewController {
     @IBOutlet private weak var buttonOutlet: UIButton!
     let vm = ViewModel()
     
+    // cold Observable signal
+    let coldObservable = Observable<String>.create { (observer) -> Disposable in
+        
+        DispatchQueue.global(qos: .default).async {
+            Thread.sleep(forTimeInterval: 5.0) // sleep for 5 secs
+            observer.onNext("Hi I am a cold signal")
+            observer.onCompleted()
+        }
+        return Disposables.create()
+    }
+    
+    
     // view controller life cycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -44,6 +56,8 @@ class ViewController: UIViewController {
         
         binding()
         bindingUIElements()
+        
+        handleColdSignal()
     }
     
     // Handling Observable sequence
@@ -152,6 +166,14 @@ class ViewController: UIViewController {
             self?.vm.buttonTappedAction()
         }.disposed(by: disposeBag)
         
+    }
+    
+    // Handle Cold signal
+    private func handleColdSignal() {
+        // observer
+        coldObservable.subscribe { (event) in
+            print("\n",event)
+        }.disposed(by: disposeBag)
     }
 
 }
