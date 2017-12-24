@@ -71,11 +71,11 @@ Observable Sequence can emit 0 or more signal/event in their lifetime.
 
 ### In RxSwift, an Event is an Enum type of 3 different possible types  : 
 
-(A.) <b>.next(value : T):</b>  When a value is added to an Observable Sequence, it triggers the next event to its subscribers. 
+(A) <b>.next(value : T):</b>  When a value is added to an Observable Sequence, it triggers the next event to its subscribers. 
 
-(B.) <b>.error(error : Error): </b> If an error happens, the Observable Sequence emits an error event to its subscribers.
+(B) <b>.error(error : Error): </b> If an error happens, the Observable Sequence emits an error event to its subscribers.
 
-(C.) <b>.completed :</b>  If an Observable Sequence ends normally then it emits  a “completed” signal to its subscribers.
+(C) <b>.completed :</b>  If an Observable Sequence ends normally then it emits  a “completed” signal to its subscribers.
 
 ### Unregister subscription :
 If you want to cancel a subscription, you can call dispose method.
