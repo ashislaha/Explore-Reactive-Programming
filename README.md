@@ -230,5 +230,6 @@ https://medium.com/ios-os-x-development/learn-and-master-%EF%B8%8F-the-basics-of
 
 https://www.raywenderlich.com/138547/getting-started-with-rxswift-and-rxcocoa
 
+http://www.tailec.com/blog/understanding-publish-connect-refcount-share
 
 
