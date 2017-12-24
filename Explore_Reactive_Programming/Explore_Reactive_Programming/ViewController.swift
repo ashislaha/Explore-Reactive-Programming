@@ -8,6 +8,7 @@
 
 import UIKit
 import RxSwift
+import RxCocoa
 
 class ViewController: UIViewController {
 
@@ -23,9 +24,13 @@ class ViewController: UIViewController {
     var variable = Variable<String>("Variable1") // wrapper of BehaviorSubject
     var replaySubject = ReplaySubject<String>.create(bufferSize: 3) // create a buffer to store the most recently nth number of events are stored
     
-    
     // disposeBag
     let disposeBag = DisposeBag()
+    
+    // Outlets
+    @IBOutlet private weak var textField: UITextField!
+    @IBOutlet private weak var buttonOutlet: UIButton!
+    let vm = ViewModel()
     
     // view controller life cycle
     override func viewDidLoad() {
@@ -38,6 +43,7 @@ class ViewController: UIViewController {
         handleReplaySubject()
         
         binding()
+        bindingUIElements()
     }
     
     // Handling Observable sequence
@@ -134,6 +140,26 @@ class ViewController: UIViewController {
         // Or use observableSequence.bindTo(subject)
     }
     
+    // Binding UIElements
+    private func bindingUIElements() {
+        
+        textField.rx.text.orEmpty.bind { (text) in
+            print(text)
+        }.disposed(by: disposeBag)
+        
+        buttonOutlet.rx.tap.bind { [weak self] in
+            print("Button tapped")
+            self?.vm.buttonTappedAction()
+        }.disposed(by: disposeBag)
+        
+    }
 
+}
+
+class ViewModel {
+
+    public func buttonTappedAction() {
+        print("Perform some action")
+    }
 }
 
