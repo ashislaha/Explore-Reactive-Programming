@@ -1,6 +1,6 @@
 # Explore Reactive Programming
 
-Let's Explore Reactive Programming. (RxSwift)
+Let's Explore Reactive Programming. ( RxSwift and RxCocoa )
 
 In Computing , reactive programming is a programming paradigm oriented around data flow and the propagation of changes.
 
