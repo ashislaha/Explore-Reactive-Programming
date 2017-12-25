@@ -203,9 +203,10 @@ ReplaySubject : N events (based on Buffer capacity )
     
     private func binding() {
         
-        let subject = PublishSubject<String>()
-        let observableSequence = Observable<String>.just("Start binding")
+        let subject = PublishSubject<String>() // Hot Observable 
+        let observableSequence = Observable<String>.just("Start binding") // Cold Observable 
         
+        // Subject must subscribe before it sends signal, else signal will not be captured as per Hot Observable property.
         subject.subscribe(onNext: { (text) in
             print(text)
         }, onError: nil, onCompleted: nil, onDisposed: nil).disposed(by: disposeBag)
@@ -215,7 +216,10 @@ ReplaySubject : N events (based on Buffer capacity )
             subject.on(event)
         }.disposed(by: disposeBag)
         
-        // Or use observableSequence.bindTo(subject)
+        // Or
+        observableSequence.bind { (event) in
+            subject.onNext(event)
+        }.disposed(by: disposeBag)
     }
  
 ### Output : 
@@ -241,8 +245,13 @@ ReplaySubject : N events (based on Buffer capacity )
         buttonOutlet.rx.tap.bind { [weak self] in
             print("Button tapped")
             self?.vm.buttonTappedAction()
-        }.disposed(by: disposeBag)
-        
+        }.disposed(by: disposeBag)  
+    }
+    
+    class ViewModel {
+       public func buttonTappedAction() {
+         print("Perform some action")
+       }
     }
     
  <b> Output : </b>
