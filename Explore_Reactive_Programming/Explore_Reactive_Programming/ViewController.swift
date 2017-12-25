@@ -139,9 +139,10 @@ class ViewController: UIViewController {
     // Binding an Observable sequece to a subject
     private func binding() {
         
-        let subject = PublishSubject<String>()
-        let observableSequence = Observable<String>.just("Start binding")
+        let subject = PublishSubject<String>() // Hot Observable
+        let observableSequence = Observable<String>.just("Start binding") // Cold Observable
         
+        // Subject must subscribe before it sends signal, else signal will not be captured as per Hot Observable property
         subject.subscribe(onNext: { (text) in
             print(text)
         }, onError: nil, onCompleted: nil, onDisposed: nil).disposed(by: disposeBag)
@@ -151,7 +152,11 @@ class ViewController: UIViewController {
             subject.on(event)
         }.disposed(by: disposeBag)
         
-        // Or use observableSequence.bindTo(subject)
+        // Or
+        observableSequence.bind { (event) in
+            subject.onNext(event)
+        }.disposed(by: disposeBag)
+        
     }
     
     // Binding UIElements
