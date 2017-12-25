@@ -307,9 +307,105 @@ A Hot observable executes even if it does not have any Observers.
 Subjects are examples of Hot observables like PublishSubject etc.
 
 
+## (4) Marable Diagram :
+
+It visualises the transformation of an Observable sequence. It consists of there layer :
+
+< Input , Transformation function , OutPut >
+
+![marble diagram](https://user-images.githubusercontent.com/10649284/34340273-28e39124-e9a7-11e7-98e4-91540cf9c80d.png)
+
+## (5) Transformation : 
+
+### A. Map : 
+
+        print("\nMap\n")
+        Observable<Int>.of(1,2,3,4).map { element in
+            return element * 10
+            }.subscribe(onNext: { (val) in
+                print(val)
+        }, onError: nil, onCompleted: nil, onDisposed: nil).disposed(by: disposeBag)
 
 
+### Output : 
 
+    Map
+    10
+    20
+    30
+    40
+
+### B. FlatMap : 
+
+        print("\nflatMap\n")
+        let observableSequence1 = Observable<Int>.of(1,2)
+        let observableSequence2 = Observable<Int>.of(3,4)
+        
+        let sequences = Observable.of(observableSequence1,observableSequence2)
+        sequences.flatMap { return $0 }.subscribe(onNext: { (val) in
+            print(val)
+        }, onError: nil, onCompleted: nil, onDisposed: nil).disposed(by: disposeBag)
+        
+### Output : 
+   
+     flatMap
+     1
+     2
+     3
+     4
+ 
+ ### C. Filter : 
+   
+        print("\nFiltering\n")
+        let observable3 = Observable<Int>.of(1,2,3,4,5,6)
+        observable3.filter { (each) -> Bool in
+            return each % 2 == 0
+            }.subscribe(onNext: { (val) in
+                print(val)
+         }, onError: nil, onCompleted: nil, onDisposed: nil).disposed(by: disposeBag)
+   
+### Output : 
+      
+      Filtering
+      2
+      4
+      6
+
+### D. DistinctUntilChanged :
+
+        print("\nDistinctUntilChanged\n")
+        let observable4 = Observable<Int>.of(1,1,1,2,3,3,3,3,3,3,4)
+        observable4.distinctUntilChanged().subscribe(onNext: { (each) in
+            print(each)
+        }, onError: nil, onCompleted: nil, onDisposed: nil).disposed(by: disposeBag)
+        
+ ### Output : 
+ 
+     DistinctUntilChanged
+     1
+     2
+     3
+     4
+  
+### E. Scan :
+
+        print("\nScan\n")
+        let observable5 = Observable<Int>.of(1,2,3,4,5)
+        observable5.scan(0) { (accumulator, val) -> Int in
+            return accumulator + val
+            }.subscribe(onNext: { (result) in
+                print(result)
+            }, onError: nil, onCompleted: nil, onDisposed: nil).disposed(by: disposeBag)
+            
+ ### Output : 
+ 
+     Scan
+     1
+     3
+     6
+     10
+     15
+  
 
 ### Useful References :
 
