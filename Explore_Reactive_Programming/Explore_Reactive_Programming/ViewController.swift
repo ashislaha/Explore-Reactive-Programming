@@ -58,6 +58,7 @@ class ViewController: UIViewController {
         bindingUIElements()
         
         handleColdSignal()
+        exploreTranformation()
     }
     
     // Handling Observable sequence
@@ -181,6 +182,54 @@ class ViewController: UIViewController {
         }.disposed(by: disposeBag)
     }
 
+    // Transformation
+    private func exploreTranformation() {
+        
+        // Map
+        print("\nMap\n")
+        Observable<Int>.of(1,2,3,4).map { element in
+            return element * 10
+            }.subscribe(onNext: { (val) in
+                print(val)
+            }, onError: nil, onCompleted: nil, onDisposed: nil).disposed(by: disposeBag)
+        
+        // flatmap
+        print("\nflatMap\n")
+        let observableSequence1 = Observable<Int>.of(1,2)
+        let observableSequence2 = Observable<Int>.of(3,4)
+        
+        let sequences = Observable.of(observableSequence1,observableSequence2)
+        sequences.flatMap { return $0 }.subscribe(onNext: { (val) in
+            print(val)
+        }, onError: nil, onCompleted: nil, onDisposed: nil).disposed(by: disposeBag)
+
+        // filter
+        print("\nFiltering\n")
+        let observable3 = Observable<Int>.of(1,2,3,4,5,6)
+        observable3.filter { (each) -> Bool in
+            return each % 2 == 0
+            }.subscribe(onNext: { (val) in
+                print(val)
+            }, onError: nil, onCompleted: nil, onDisposed: nil).disposed(by: disposeBag)
+        
+        // distinctUntilChanged
+        print("\nDistinctUntilChanged\n")
+        let observable4 = Observable<Int>.of(1,1,1,2,3,3,3,3,3,3,4)
+        observable4.distinctUntilChanged().subscribe(onNext: { (each) in
+            print(each)
+        }, onError: nil, onCompleted: nil, onDisposed: nil).disposed(by: disposeBag)
+        
+        // scan
+        print("\nScan\n")
+        let observable5 = Observable<Int>.of(1,2,3,4,5)
+        observable5.scan(0) { (accumulator, val) -> Int in
+            return accumulator + val
+            }.subscribe(onNext: { (result) in
+                print(result)
+            }, onError: nil, onCompleted: nil, onDisposed: nil).disposed(by: disposeBag)
+        
+        
+    }
 }
 
 class ViewModel {
