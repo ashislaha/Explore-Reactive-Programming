@@ -141,7 +141,7 @@ ReplaySubject : N events (based on Buffer capacity )
 
        Event4 - Printed - PublishSubject
 
- ###  Handling behaviorSubject and Variable
+ ###  Handling behaviorSubject / Variable
  
     private func handleBehaviorSubject() {
         // send signals
