@@ -217,12 +217,92 @@ ReplaySubject : N events (based on Buffer capacity )
         
         // Or use observableSequence.bindTo(subject)
     }
-    
- ### Output : 
-        Start binding
-        
+ 
+### Output : 
 
-# Useful References :
+     Start binding
+        
+## Binding UIElements :
+
+ <b> Outlets and view model  </b>
+ 
+    @IBOutlet private weak var textField: UITextField!
+    @IBOutlet private weak var buttonOutlet: UIButton!
+    let vm = ViewModel()
+
+<b> binding textField and button </b>
+    
+    private func bindingUIElements() {
+        
+        textField.rx.text.orEmpty.bind { (text) in
+            print(text)
+        }.disposed(by: disposeBag)
+        
+        buttonOutlet.rx.tap.bind { [weak self] in
+            print("Button tapped")
+            self?.vm.buttonTappedAction()
+        }.disposed(by: disposeBag)
+        
+    }
+    
+ <b> Output : </b>
+ 
+ when you write on textField :
+         
+         H
+         He
+         Hel
+         Hell
+         Hello
+         Hello 
+         Hello w
+         Hello wo
+  
+  When you tap on button : 
+     
+     Button tapped
+     Perform some action
+
+## (3) Cold Observable and Hot Observable :
+
+### Cold Observable : 
+
+It will start executing only when an observer subscribes the observable sequence.
+
+<b> Create a cold observable : </b>
+    
+    // cold Observable signal
+    let coldObservable = Observable<String>.create { (observer) -> Disposable in
+        
+        DispatchQueue.global(qos: .default).async {
+            Thread.sleep(forTimeInterval: 5.0) // sleep for 5 secs
+            observer.onNext("Hi I am a cold signal")
+            observer.onCompleted()
+        }
+        return Disposables.create()
+    }
+    
+<b> Subscribed Observer of cold observable : </b>
+
+     private func handleColdSignal() {
+        // observer
+        coldObservable.subscribe { (event) in
+            print("\n",event)
+        }.disposed(by: disposeBag)
+    }
+
+### Hot Observable :
+
+A Hot observable executes even if it does not have any Observers.
+
+Subjects are examples of Hot observables like PublishSubject etc.
+
+
+
+
+
+
+### Useful References :
 
 http://swiftpearls.com/RxSwift-for-dummies-1-Observables.html
 
