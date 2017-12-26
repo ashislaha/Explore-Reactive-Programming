@@ -317,6 +317,8 @@ It visualises the transformation of an Observable sequence. It consists of there
 
 ## (5) Transformation : 
 
+<b> Sometimes if you want to transform (filter, combine, map etc.) the event/signal emitted by Observable sequence and before receiving to the subscribers, you can do that. </b>
+
 ### A. Map : 
 
         print("\nMap\n")
