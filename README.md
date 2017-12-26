@@ -4,7 +4,7 @@ Let's Explore Reactive Programming. ( RxSwift and RxCocoa )
 
 In Computing , reactive programming is a programming paradigm oriented around data flow and the propagation of changes.
 
-Swift version of Reactive programming : RxSwift : 
+RxSwift provides the fundamentals of Observables and RxCocoa provides extensions to the Cocoa and Cocoa Touch frameworks to take advantage of RxSwift. 
 
 ## (1). Observable sequence : 
 
