@@ -419,4 +419,9 @@ https://www.raywenderlich.com/138547/getting-started-with-rxswift-and-rxcocoa
 
 http://www.tailec.com/blog/understanding-publish-connect-refcount-share
 
+http://lukajcb.github.io/blog/reactivex/2016/05/04/reactive-uis-with-rx-swift.html
+
+https://www.raywenderlich.com/126522/reactivecocoa-vs-rxswift
+
+
 
