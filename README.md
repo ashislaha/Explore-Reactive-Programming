@@ -415,6 +415,8 @@ http://swiftpearls.com/RxSwift-for-dummies-1-Observables.html
 
 https://medium.com/ios-os-x-development/learn-and-master-%EF%B8%8F-the-basics-of-rxswift-in-10-minutes-818ea6e0a05b
 
+https://academy.realm.io/posts/slug-max-alexander-functional-reactive-rxswift/
+
 https://www.raywenderlich.com/138547/getting-started-with-rxswift-and-rxcocoa
 
 http://www.tailec.com/blog/understanding-publish-connect-refcount-share
